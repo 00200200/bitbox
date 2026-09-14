@@ -124,6 +124,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines. The short version:
 | [@Killerbrine06](https://github.com/Killerbrine06) | binary_to_octal |
 | [@AashishGupta2007](https://github.com/AashishGupta2007) | digit_sum |
 | [@divyanshsinghtomar-ds](https://github.com/divyanshsinghtomar-ds) | subtract_days |
-| [@ShauryaPrakashVerma](https://github.com/ShauryaPrakashVerma) | count_lowercase, count_uppercase |
+| [@ShauryaPrakashVerma](https://github.com/ShauryaPrakashVerma) | count_lowercase, count_uppercase, count_non_vowels, is_vowel, count_consonants |
 
+| [@GabrielTrifoni](https://github.com/GabrielTrifoni) | digits_product |
 <!-- Contributors are added automatically after PRs are merged -->
