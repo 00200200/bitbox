@@ -22,9 +22,11 @@ def test_lcm_of_list(args, expected):
     assert run(*args) == expected
 
 
-@pytest.mark.parametrize(
-    "args", [(), ("1", "2"), ("",), ("1,,2",), ("x,2",), ("1.5,2",)]
-)
-def test_lcm_of_list_rejects_invalid_input(args):
-    with pytest.raises(ValueError):
-        run(*args)
+@pytest.mark.parametrize("args", [(), ("1", "2")])
+def test_lcm_of_list_rejects_wrong_argument_count(args):
+    assert run(*args) == "Error: Requires exactly one argument"
+
+
+@pytest.mark.parametrize("args", [("",), ("1,,2",), ("x,2",), ("1.5,2",)])
+def test_lcm_of_list_rejects_unparsable_integers(args):
+    assert run(*args) == "Error: Expected comma-separated integers"

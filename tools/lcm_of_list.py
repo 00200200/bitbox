@@ -8,8 +8,11 @@ import math
 
 def run(*args) -> str:
     if len(args) != 1:
-        raise ValueError("Requires exactly one argument")
-    numbers = [int(value.strip()) for value in args[0].split(",")]
+        return "Error: Requires exactly one argument"
+    try:
+        numbers = [int(value.strip()) for value in args[0].split(",")]
+    except ValueError:
+        return "Error: Expected comma-separated integers"
     result = 1
     for number in numbers:
         if result == 0 or number == 0:
