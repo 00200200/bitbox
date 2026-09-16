@@ -23,7 +23,11 @@ def test_is_twin_prime(args, expected):
     assert run(*args) == expected
 
 
-@pytest.mark.parametrize("args", [(), ("3", "5"), ("abc",), ("3.5",)])
-def test_is_twin_prime_rejects_invalid_input(args):
-    with pytest.raises(ValueError):
-        run(*args)
+@pytest.mark.parametrize("args", [(), ("3", "5")])
+def test_is_twin_prime_rejects_wrong_argument_count(args):
+    assert run(*args) == "Error: Requires exactly one argument"
+
+
+@pytest.mark.parametrize("args", [("abc",), ("3.5",)])
+def test_is_twin_prime_rejects_non_integer_argument(args):
+    assert run(*args) == "Error: Argument must be an integer"

@@ -8,8 +8,11 @@ import math
 
 def run(*args) -> str:
     if len(args) != 1:
-        raise ValueError("Requires exactly one argument")
-    n = int(args[0])
+        return "Error: Requires exactly one argument"
+    try:
+        n = int(args[0])
+    except ValueError:
+        return "Error: Argument must be an integer"
     if n < 2:
         return "False"
     for candidate in (n, n + 2):
