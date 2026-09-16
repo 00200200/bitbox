@@ -6,8 +6,11 @@
 
 def run(*args) -> str:
     if len(args) != 2:
-        raise ValueError("Requires exactly two integers")
-    number, divisor = (int(value) for value in args)
+        return "Error: Requires exactly two integers"
+    try:
+        number, divisor = (int(value) for value in args)
+    except ValueError:
+        return "Error: Arguments must be integers"
     if divisor == 0:
-        raise ValueError("Divisor must not be zero")
+        return "Error: Divisor must not be zero"
     return str(number % divisor == 0)

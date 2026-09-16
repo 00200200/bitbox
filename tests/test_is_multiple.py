@@ -20,9 +20,15 @@ def test_is_multiple(args, expected):
     assert run(*args) == expected
 
 
-@pytest.mark.parametrize(
-    "args", [(), ("1",), ("1", "2", "3"), ("1", "0"), ("x", "2"), ("1.5", "2")]
-)
-def test_is_multiple_rejects_invalid_input(args):
-    with pytest.raises(ValueError):
-        run(*args)
+@pytest.mark.parametrize("args", [(), ("1",), ("1", "2", "3")])
+def test_is_multiple_rejects_wrong_argument_count(args):
+    assert run(*args) == "Error: Requires exactly two integers"
+
+
+@pytest.mark.parametrize("args", [("x", "2"), ("1.5", "2")])
+def test_is_multiple_rejects_non_integer_arguments(args):
+    assert run(*args) == "Error: Arguments must be integers"
+
+
+def test_is_multiple_rejects_zero_divisor():
+    assert run("1", "0") == "Error: Divisor must not be zero"
