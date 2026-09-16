@@ -8,11 +8,11 @@ from decimal import Decimal, InvalidOperation
 
 def run(*args) -> str:
     if len(args) != 1:
-        raise ValueError("Requires exactly one argument")
+        return "Error: Requires exactly one argument"
     try:
         numbers = [Decimal(value.strip()) for value in args[0].split(",")]
-    except InvalidOperation as exc:
-        raise ValueError("Expected comma-separated numbers") from exc
+    except InvalidOperation:
+        return "Error: Expected comma-separated numbers"
     if not all(value.is_finite() for value in numbers):
-        raise ValueError("Numbers must be finite")
+        return "Error: Numbers must be finite"
     return str(all(left <= right for left, right in zip(numbers, numbers[1:])))
