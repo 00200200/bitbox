@@ -30,5 +30,4 @@ def test_is_hex_color(args, expected):
 
 @pytest.mark.parametrize("args", [(), ("#fff", "#000")])
 def test_is_hex_color_rejects_invalid_input(args):
-    with pytest.raises(ValueError):
-        run(*args)
+    assert run(*args) == "Error: Requires exactly one argument"

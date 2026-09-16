@@ -8,7 +8,7 @@ import re
 
 def run(*args) -> str:
     if len(args) != 1:
-        raise ValueError("Requires exactly one argument")
+        return "Error: Requires exactly one argument"
     return str(
         re.fullmatch(
             r"#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})", args[0]
