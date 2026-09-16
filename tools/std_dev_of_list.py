@@ -9,8 +9,11 @@ import statistics
 
 def run(*args) -> str:
     if len(args) != 1:
-        raise ValueError("Requires exactly one argument")
-    numbers = [float(value.strip()) for value in args[0].split(",")]
+        return "Error: Requires exactly one argument"
+    try:
+        numbers = [float(value.strip()) for value in args[0].split(",")]
+    except ValueError:
+        return "Error: Expected comma-separated numbers"
     if not all(math.isfinite(value) for value in numbers):
-        raise ValueError("Numbers must be finite")
+        return "Error: Numbers must be finite"
     return f"{statistics.pstdev(numbers):.2f}"
